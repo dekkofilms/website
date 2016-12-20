@@ -7,6 +7,6 @@ app.config(['$routeProvider', function ($routeProvider) {
     })
     .when('/about', {
       templateUrl: './app/partials/about.html',
-      // controller: 'homeController'
+      // controller: 'aboutController'
     });
 }])

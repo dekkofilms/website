@@ -9,31 +9,29 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js" charset="utf-8"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular-route.js" charset="utf-8"></script>
-
   <script src="./app/app.js" charset="utf-8"></script>
   <script src="./app/controllers/homeController.js" charset="utf-8"></script>
-  <script src="./app/video.js" charset="utf-8"></script>
-
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,900" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <title>Taylor King</title>
 
 </head>
 <body ng-app="myApp">
-  <div class="wrapper imageAndText" ng-controller="homeController">
-    <img id="current-frame" ng-src="{{view.backgroundImg}}" class="img-responsive behind" alt="Video of Me">
-    <div class="row on-top">
-      <div class="col-md-12 colFix">
-        <a class="btn" ng-click="play('forward', 0, 144)"><h1>About</h1></a>
-        <a class="btn pull-right" ng-click="play('backward', 144, 0)"><h1>Work</h1></a>
-      </div>
+
+  <div class="container-fluid video-wrap" ng-controller="homeController">
+    <img ng-src="{{view.backgroundImg}}" class="current-frame" alt="Video of Me">
+    <div class="row equal move">
+      <div class="col-md-4 col-sm-4 text-left"><a class="btn" ng-click="play('forward', 0, 144)" href="#!/about/"><h3 class="vcenter">About</h3></a></div>
+      <div class="col-md-4 col-sm-4 text-center"><span class="logo vcenter">TAYLOR</span></div>
+      <div class="col-md-4 col-sm-4 text-right"><a class="btn" ng-click="play('backward', 144, 0)"><h3 class="vcenter">Work</h3></a></div>
     </div>
   </div>
 
-  <div ng-view=""></div>
+  <div ng-view="" class="container-fluid enter">
+    awefaewf
+  </div>
 
 </body>
 </html>

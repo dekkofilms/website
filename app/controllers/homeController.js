@@ -52,6 +52,26 @@ app.controller('homeController', ['$scope', '$interval', function ($scope, $inte
   }
 
 
+  // var preparing = new Promise(function(resolve, reject) {
+  //   function prepareCount() {
+  //     var img = '../assets/video/compressed/video-' + (curr + 1) + '.jpg';
+  //
+  //     curr++;
+  //     if (curr > stop) {
+  //       curr = 0;
+  //     } else {
+  //       $scope.view.imgArr.push(img);
+  //       prepareCount();
+  //     }
+  //   }
+  //
+  //   if ($scope.view.imgArr === 144) {
+  //     resolve(true);
+  //   } else {
+  //     reject(Error("It broke"));
+  //   }
+  // });
+
   //preparing the image array
   function prepareCount() {
     var img = '../assets/video/compressed/video-' + (curr + 1) + '.jpg';
