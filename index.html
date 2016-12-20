@@ -24,11 +24,11 @@
 </head>
 <body ng-app="myApp">
   <div class="wrapper imageAndText" ng-controller="homeController">
-    <img id="current-frame" src="" class="img-responsive behind" alt="Video of Me">
+    <img id="current-frame" ng-src="{{view.backgroundImg}}" class="img-responsive behind" alt="Video of Me">
     <div class="row on-top">
       <div class="col-md-12 colFix">
-        <a id="home" class="btn"><h1>About</h1></a>
-        <a id="about" class="btn pull-right"><h1>Work</h1></a>
+        <a class="btn" ng-click="play('forward', 0, 144)"><h1>About</h1></a>
+        <a class="btn pull-right" ng-click="play('backward', 144, 0)"><h1>Work</h1></a>
       </div>
     </div>
   </div>
