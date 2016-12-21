@@ -9,6 +9,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js" charset="utf-8"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular-route.js" charset="utf-8"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular-animate.js" charset="utf-8"></script>
   <script src="./app/app.js" charset="utf-8"></script>
   <script src="./app/controllers/homeController.js" charset="utf-8"></script>
   <!-- Latest compiled and minified CSS -->
@@ -18,19 +19,34 @@
   <title>Taylor King</title>
 
 </head>
-<body ng-app="myApp">
+<body ng-app="myApp"  ng-controller="homeController">
 
-  <div class="container-fluid video-wrap" ng-controller="homeController">
+  <div class="container-fluid video-wrap" ng-class="push">
     <img ng-src="{{view.backgroundImg}}" class="current-frame" alt="Video of Me">
     <div class="row equal move">
-      <div class="col-md-4 col-sm-4 text-left"><a class="btn" ng-click="play('forward', 0, 144)" href="#!/about/"><h3 class="vcenter">About</h3></a></div>
-      <div class="col-md-4 col-sm-4 text-center"><span class="logo vcenter">TAYLOR</span></div>
-      <div class="col-md-4 col-sm-4 text-right"><a class="btn" ng-click="play('backward', 144, 0)"><h3 class="vcenter">Work</h3></a></div>
+      <div class="col-md-4 col-sm-4 text-left" ng-show="view.aboutBtn">
+        <a class="btn" ng-click="toggleAbout(); push='left-animate'; play('forward', 0, 60)" href="#!/">
+          <h3 class="vcenter">About</h3>
+        </a>
+      </div>
+      <div class="col-md-4 col-sm-4 text-center">
+        <span class="logo vcenter">TAYLOR</span>
+      </div>
+      <div class="col-md-4 col-sm-4 text-right" ng-show="view.workBtn">
+        <a class="btn" ng-click="toggleWork(); push='right-animate'; play('forward', 60, 120)" href="#!/work/">
+          <h3 class="vcenter">Work</h3>
+        </a>
+      </div>
     </div>
   </div>
+  <div class="about-page left-modal-animate" ng-include="'./app/partials/sideabout.html'" ng-if="view.aboutPageVisible">
+
+  </div>
+  <!-- <div class="work-page right-modal-animate" ng-include="'./app/partials/sidework.html'" ng-if="view.workPageVisible">
+
+  </div> -->
 
   <div ng-view="" class="container-fluid enter">
-    awefaewf
   </div>
 
 </body>

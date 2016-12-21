@@ -22,6 +22,11 @@
   transform: translate(-50%, -50%);
 }
 
+h1 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+}
+
 h3 {
   display: inline;
   font-family: 'Lato', sans-serif;
@@ -30,6 +35,8 @@ h3 {
 
 p, div {
     font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 28px;
 }
 
 .logo {
@@ -63,6 +70,137 @@ p, div {
 
 /*About Page*/
 .enter {
-  height: 100vh;
-  vertical-align: bottom;
+  position: absolute;
+  top: 100vh;
+  background-color: white;
+  width: 100%;
+  height: auto;
+}
+
+/*about side bar*/
+.about-page {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  z-index: 5;
+  background-color: #28292D;
+  color: #F6F7F8;
+}
+
+.popit {
+  color: #646970;
+  font-size: 12vw;
+}
+
+.clean-middle {
+  margin: 75px;
+}
+
+.smallpop {
+  color: #36AF6D;
+  font-size: 3.5vw;
+}
+
+.normal {
+  color: #F6F7F8;
+  font-size: 28px;
+  font-weight: 300;
+}
+
+/*work page sidebar*/
+.work-page {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  z-index: 5;
+  right: 0;
+  background-color: #28292D;
+  color: #F6F7F8;
+}
+
+/* -------- ANIMATIONS -------- */
+
+/*left side*/
+.left-modal-animate {
+  padding:10px;
+}
+
+.left-modal-animate.ng-enter, .left-modal-animate.ng-leave {
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  display:block;
+  padding:10px;
+}
+
+.left-modal-animate.ng-enter {
+  left: -50%;
+}
+
+.left-modal-animate.ng-enter.ng-enter-active {
+  left:0;
+}
+
+.left-modal-animate.ng-leave {
+  left:0;
+}
+
+.left-modal-animate.ng-leave.ng-leave-active {
+  left:-50%;
+}
+
+/*right side*/
+.right-modal-animate {
+  padding:10px;
+}
+
+.right-modal-animate.ng-enter, .right-modal-animate.ng-leave {
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+
+  position:absolute;
+  top:0;
+  right:0;
+  bottom:0;
+  display:block;
+  padding:10px;
+}
+
+.right-modal-animate.ng-enter {
+  right: -50%;
+}
+
+.right-modal-animate.ng-enter.ng-enter-active {
+  right:0;
+}
+
+.right-modal-animate.ng-leave {
+  right:0;
+}
+
+.right-modal-animate.ng-leave.ng-leave-active {
+  right:-50%;
+}
+
+/*video animation*/
+.left-animate {
+  transition: 0.5s linear all;
+  left: 60%;
+  height: 100%;
+  width: 60%;
+}
+
+/*.right-animate {
+  transition: 0.5s linear all;
+  right: 60%;
+  height: 100%;
+  width: 60%;
+}*/
+
+/*work page*/
+.top-buffer {
+  margin-top: 30px;
 }

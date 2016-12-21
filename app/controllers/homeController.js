@@ -8,9 +8,29 @@ app.controller('homeController', ['$scope', '$interval', function ($scope, $inte
   $scope.view = {};
   $scope.view.imgArr = [];
 
+  //Animation booleans
+  $scope.view.aboutPageVisible = false;
+  $scope.view.workPageVisible = false;
+  $scope.view.aboutBtn = true;
+  $scope.view.workBtn = true;
+
+  $scope.toggleAbout = function () {
+    $scope.view.aboutPageVisible = true;
+    $scope.view.workPageVisible = false;
+    $scope.view.aboutBtn = false;
+    $scope.view.workBtn = true;
+  }
+
+  $scope.toggleWork = function () {
+    $scope.view.aboutPageVisible = false;
+    $scope.view.workPageVisible = true;
+    $scope.view.aboutBtn = true;
+    $scope.view.workBtn = false;
+  }
+
   curr = 0;
   start = 0;
-  stop = 144;
+  stop = 119;
   prepareCount();
 
   $scope.view.backgroundImg = $scope.view.imgArr[curr];
@@ -39,7 +59,6 @@ app.controller('homeController', ['$scope', '$interval', function ($scope, $inte
           //then set current frame somehow
         }
         $scope.view.backgroundImg = $scope.view.imgArr[currentImage];
-        console.log($scope.view.backgroundImg);
       }, 1000/24)
     }
   }
@@ -50,7 +69,6 @@ app.controller('homeController', ['$scope', '$interval', function ($scope, $inte
       animate = undefined;
     }
   }
-
 
   // var preparing = new Promise(function(resolve, reject) {
   //   function prepareCount() {
@@ -74,7 +92,7 @@ app.controller('homeController', ['$scope', '$interval', function ($scope, $inte
 
   //preparing the image array
   function prepareCount() {
-    var img = '../assets/video/compressed/video-' + (curr + 1) + '.jpg';
+    var img = '../assets/video/test2/video-' + (curr + 1) + '.jpg';
 
     curr++;
     if (curr > stop) {
@@ -84,4 +102,5 @@ app.controller('homeController', ['$scope', '$interval', function ($scope, $inte
       prepareCount();
     }
   }
+
 }])
