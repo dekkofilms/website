@@ -1,4 +1,4 @@
-app.controller('homeController', ['$scope', '$interval', function ($scope, $interval) {
+app.controller('homeController', ['$scope', '$interval', '$timeout','$animate', function ($scope, $interval, $timeout, $animate) {
   var curr,
       start,
       stop,
@@ -14,19 +14,37 @@ app.controller('homeController', ['$scope', '$interval', function ($scope, $inte
   $scope.view.aboutBtn = true;
   $scope.view.workBtn = true;
 
-  $scope.toggleAbout = function () {
-    $scope.view.aboutPageVisible = true;
-    $scope.view.workPageVisible = false;
-    $scope.view.aboutBtn = false;
-    $scope.view.workBtn = true;
-  }
 
-  $scope.toggleWork = function () {
-    $scope.view.aboutPageVisible = false;
-    $scope.view.workPageVisible = true;
-    $scope.view.aboutBtn = true;
-    $scope.view.workBtn = false;
-  }
+    $scope.toggleAbout = function (direction, start, end) {
+      return new Promise(function(resolve, reject){
+        $scope.view.aboutPageVisible = true;
+        $scope.view.workPageVisible = false;
+        $scope.view.aboutBtn = false;
+        $scope.view.workBtn = true;
+        setTimeout(function(){
+          let stupidPromise = [direction, start, end]
+          resolve(stupidPromise);
+        }, 600)
+      }).then(function(data){
+        play(data[0], data[1], data[2]);
+      });
+    }
+
+    $scope.toggleWork = function (direction, start, end) {
+      return new Promise(function(resolve, reject){
+        $scope.view.aboutPageVisible = false;
+        $scope.view.workPageVisible = true;
+        $scope.view.aboutBtn = true;
+        $scope.view.workBtn = false;
+        setTimeout(function(){
+          let stupidPromise = [direction, start, end]
+          resolve(stupidPromise);
+        }, 600)
+      }).then(function(data){
+        play(data[0], data[1], data[2]);
+      });
+    }
+
 
   curr = 0;
   start = 0;
@@ -38,7 +56,7 @@ app.controller('homeController', ['$scope', '$interval', function ($scope, $inte
 
   //helper functions
   var animate;
-  $scope.play = function (direction, startFrame, endFrame) {
+  function play(direction, startFrame, endFrame) {
     console.log('hit function', direction, endFrame);
     var currentImage = startFrame;
 
@@ -63,32 +81,16 @@ app.controller('homeController', ['$scope', '$interval', function ($scope, $inte
     }
   }
 
+
+
+
+
   $scope.stopAnimate = function () {
     if (angular.isDefined(animate)) {
       $interval.cancel(animate);
       animate = undefined;
     }
   }
-
-  // var preparing = new Promise(function(resolve, reject) {
-  //   function prepareCount() {
-  //     var img = '../assets/video/compressed/video-' + (curr + 1) + '.jpg';
-  //
-  //     curr++;
-  //     if (curr > stop) {
-  //       curr = 0;
-  //     } else {
-  //       $scope.view.imgArr.push(img);
-  //       prepareCount();
-  //     }
-  //   }
-  //
-  //   if ($scope.view.imgArr === 144) {
-  //     resolve(true);
-  //   } else {
-  //     reject(Error("It broke"));
-  //   }
-  // });
 
   //preparing the image array
   function prepareCount() {

@@ -24,21 +24,23 @@
   <div class="container-fluid video-wrap" ng-class="push">
     <img ng-src="{{view.backgroundImg}}" class="current-frame" alt="Video of Me">
     <div class="row equal move">
-      <div class="col-md-4 col-sm-4 text-left" ng-show="view.aboutBtn">
-        <a class="btn" ng-click="toggleAbout(); push='left-animate'; play('forward', 0, 60)" href="#!/">
-          <h3 class="vcenter">About</h3>
+      <div class="col-md-4 col-sm-4 newcenter" ng-show="view.aboutBtn">
+        <a class="btn" ng-click="toggleAbout('forward', 0, 60); push='left-animate'" href="#!/">
+          <h3 class="pull-left vcenter"><span class="glyphicon glyphicon-chevron-left line" aria-hidden="true"></span>about</h3>
         </a>
       </div>
       <div class="col-md-4 col-sm-4 text-center">
         <span class="logo vcenter">TAYLOR</span>
       </div>
-      <div class="col-md-4 col-sm-4 text-right" ng-show="view.workBtn">
-        <a class="btn" ng-click="toggleWork(); push='right-animate'; play('forward', 60, 120)" href="#!/work/">
-          <h3 class="vcenter">Work</h3>
+      <div class="col-md-4 col-sm-4 newcenter" ng-show="view.workBtn">
+        <a class="btn pull-right" ng-click="toggleWork('forward', 60, 120); push='right-animate'" href="#!/work/">
+          <h3 class="pull-right vcenter">work<span class="glyphicon glyphicon-chevron-right line" aria-hidden="true"></span></h3>
         </a>
       </div>
     </div>
   </div>
+
+  
   <div class="about-page left-modal-animate" ng-include="'./app/partials/sideabout.html'" ng-if="view.aboutPageVisible">
 
   </div>

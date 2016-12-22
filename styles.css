@@ -30,7 +30,7 @@ h1 {
 h3 {
   display: inline;
   font-family: 'Lato', sans-serif;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 p, div {
@@ -39,10 +39,19 @@ p, div {
     font-size: 28px;
 }
 
+.btn {
+  color: #14041E;
+}
+
 .logo {
   font-family: 'Lato', sans-serif;
   font-weight: 900;
-  font-size: 70px;
+  font-size: 90px;
+  color: #48DBE3;
+}
+
+.line {
+  line-height: 10px;
 }
 
 /*Math the heights of columns inside of a row*/
@@ -63,6 +72,19 @@ p, div {
     float: none;
 }
 
+.newcenter {
+  padding-top: 35px;
+  padding-bottom: 35px;
+}
+
+.pull-left {
+  margin: 0 0;
+}
+
+.pull-right {
+  margin: 0 0;
+}
+
 .move {
   position: relative;
   top: 45%;
@@ -80,29 +102,26 @@ p, div {
 /*about side bar*/
 .about-page {
   position: absolute;
+  padding-left: 35px;
+  padding-right: 35px;
   width: 50%;
   height: 100%;
   z-index: 5;
-  background-color: #28292D;
-  color: #F6F7F8;
+  background-color: #FFFFFF;
+  color: #263D42;
 }
 
 .popit {
-  color: #646970;
+  color: #F1615C;
   font-size: 12vw;
 }
 
-.clean-middle {
-  margin: 75px;
-}
-
 .smallpop {
-  color: #36AF6D;
-  font-size: 3.5vw;
+  font-size: 42px;
 }
 
 .normal {
-  color: #F6F7F8;
+  color: #263D42;
   font-size: 28px;
   font-weight: 300;
 }
@@ -121,10 +140,6 @@ p, div {
 /* -------- ANIMATIONS -------- */
 
 /*left side*/
-.left-modal-animate {
-  padding:10px;
-}
-
 .left-modal-animate.ng-enter, .left-modal-animate.ng-leave {
   transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
 
@@ -159,7 +174,7 @@ p, div {
 }
 
 .right-modal-animate.ng-enter, .right-modal-animate.ng-leave {
-  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  transition:all ease-in-out 0.3s;
 
   position:absolute;
   top:0;
@@ -187,20 +202,30 @@ p, div {
 
 /*video animation*/
 .left-animate {
-  transition: 0.5s linear all;
+  transition: 0.5s ease-in-out all;
   left: 60%;
   height: 100%;
   width: 60%;
 }
 
-/*.right-animate {
-  transition: 0.5s linear all;
-  right: 60%;
-  height: 100%;
-  width: 60%;
-}*/
+.right-animate {
+  transition: 0.3s ease-in-out all;
+  left: 0;
+}
 
 /*work page*/
 .top-buffer {
   margin-top: 30px;
+}
+
+/*test animation*/
+@@keyframes fadeBack {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale3d(0, 0, 45);
+    opacity: 0.2;
+  }
 }
