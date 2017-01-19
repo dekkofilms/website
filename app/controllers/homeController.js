@@ -81,10 +81,6 @@ app.controller('homeController', ['$scope', '$interval', '$timeout','$animate', 
     }
   }
 
-
-
-
-
   $scope.stopAnimate = function () {
     if (angular.isDefined(animate)) {
       $interval.cancel(animate);
@@ -95,7 +91,6 @@ app.controller('homeController', ['$scope', '$interval', '$timeout','$animate', 
   //preparing the image array
   function prepareCount() {
     var img = '../assets/video/test2/video-' + (curr + 1) + '.jpg';
-
     curr++;
     if (curr > stop) {
       curr = 0;
