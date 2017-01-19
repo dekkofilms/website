@@ -12,4 +12,8 @@ app.config(['$routeProvider', function ($routeProvider) {
     .when('/work', {
       templateUrl: './app/partials/bottomwork.html'
     })
+    .when('/work/:projectName', {
+      templateUrl: function (params) {return '/work/' + params.projectName},
+      controller: 'projectController'
+    })
 }])
